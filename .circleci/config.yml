@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   build-and-test:
-    working_directory: ~/
+    working_directory: ~/CCIDemoApp
     parallelism: 1
     shell: /bin/bash --login -o pipefail
     environment:
