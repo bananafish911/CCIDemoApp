@@ -12,7 +12,7 @@ jobs:
     macos:
       xcode: "9.4.1"
 
-    steps
+    steps:
       - checkout
       - run: bundle install
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS $XCODE_TEST_REPORTS
