@@ -1,6 +1,0 @@
-framework module Pods_CCIDemoAppTests {
-  umbrella header "Pods-CCIDemoAppTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
