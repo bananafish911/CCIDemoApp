@@ -1,0 +1,36 @@
+version: 2
+
+jobs:
+  build-and-test:
+    working_directory: ~/
+    parallelism: 1
+    shell: /bin/bash --login -o pipefail
+    environment:
+      - CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      - CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+
+    macos:
+      xcode: "9.4.1"
+
+    steps:
+
+      - checkout
+      - run: bundle install
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS $XCODE_TEST_REPORTS
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run:
+          name: pre-start simulator
+          command: xcrun simctl boot "iPhone 8"
+      - run:
+          name: build CCIDemoApp
+          command: set -o pipefail && xcodebuild CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY='iPhone Developer' PROVISIONING_PROFILE= -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.4,name=iPhone 8' -workspace CCIDemoApp/CCIDemoApp.xcworkspace -scheme "CCIDemoApp" clean build test && tee $CIRCLE_ARTIFACTS/xcode_raw.log | xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
+      - run:
+          name: Save artifacts
+          command: find $HOME/Library/Developer/Xcode/DerivedData -name '*.xcactivitylog' -exec cp {} $CIRCLE_ARTIFACTS/xcactivitylog \; || true
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build-and-test
