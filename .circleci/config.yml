@@ -16,8 +16,8 @@ jobs:
       - checkout
       - run: sudo bundle install
       - run:
-          # name: pre-start simulator
-          # command: xcrun instruments -w "iPhone 7 (10.2) [" || true
+          name: pre-start simulator
+          command: #xcrun instruments -w "iPhone 7 (10.2) [" || true
       - run:
           name: Fastlane
           command: bundle exec fastlane $FASTLANE_LANE
@@ -38,8 +38,8 @@ jobs:
       - checkout
       - run: sudo bundle install
       - run:
-          # name: pre-start simulator
-          # command: xcrun instruments -w "iPhone 7 (10.2) [" || true
+          name: pre-start simulator
+          command: #xcrun instruments -w "iPhone 7 (10.2) [" || true
       - run:
           name: Fastlane
           command: bundle exec fastlane $FASTLANE_LANE
