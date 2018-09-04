@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - checkout
-      - run: bundle install
+      - run: sudo bundle install
       - run:
           name: pre-start simulator
           command: xcrun instruments -w "iPhone 7 (10.2) [" || true
@@ -36,7 +36,7 @@ jobs:
     shell: /bin/bash --login -o pipefail
     steps:
       - checkout
-      - run: bundle install
+      - run: sudo bundle install
       - run:
           name: pre-start simulator
           command: xcrun instruments -w "iPhone 7 (10.2) [" || true
