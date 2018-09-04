@@ -25,14 +25,42 @@
                                     <constraint firstAttribute="width" constant="240" id="z08-if-ljU"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-tC-fNT">
+                                <rect key="frame" x="32" y="472" width="311" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="ZYU-QV-tBc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.20391866564750671" green="0.20407950878143311" blue="0.19571971893310547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTW-Wr-6kY">
+                                <rect key="frame" x="32" y="504" width="311" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="EOL-YU-ZzA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.20391866564750671" green="0.20407950878143311" blue="0.19571971893310547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1529411765" green="0.80392156859999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LTW-Wr-6kY" secondAttribute="trailing" constant="32" id="8ZR-1b-ITW"/>
+                            <constraint firstItem="XHl-tC-fNT" firstAttribute="top" secondItem="Sdq-PI-BlI" secondAttribute="bottom" constant="18.5" id="eIC-W6-ckP"/>
+                            <constraint firstItem="XHl-tC-fNT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="mDd-r1-Erb"/>
+                            <constraint firstItem="LTW-Wr-6kY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="pE2-ln-53W"/>
                             <constraint firstItem="Sdq-PI-BlI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pPr-Ix-EhT"/>
+                            <constraint firstItem="LTW-Wr-6kY" firstAttribute="top" secondItem="XHl-tC-fNT" secondAttribute="bottom" constant="8" id="v1G-MR-Fgo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XHl-tC-fNT" secondAttribute="trailing" constant="32" id="vRv-zr-4fX"/>
                             <constraint firstItem="Sdq-PI-BlI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yDv-MZ-sud"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="buildVersionLabel" destination="LTW-Wr-6kY" id="YHh-9I-lTc"/>
+                        <outlet property="releaseVersionLabel" destination="XHl-tC-fNT" id="Wi2-Mk-6dd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

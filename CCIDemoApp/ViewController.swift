@@ -10,16 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var releaseVersionLabel: UILabel!
+    @IBOutlet weak var buildVersionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        releaseVersionLabel.text = "Version: " + Bundle.main.releaseVersionNumber
+        buildVersionLabel.text = "Build: " + Bundle.main.buildVersionNumber
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
+extension Bundle {
+    var releaseVersionNumber: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? "n/a"
+    }
+    var buildVersionNumber: String {
+        return infoDictionary?["CFBundleVersion"] as? String ?? "n/a"
+    }
+}
