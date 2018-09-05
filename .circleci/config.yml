@@ -14,13 +14,13 @@ jobs:
 
     steps:
       - checkout
-      - run: sudo bundle install
+      - run: cd Project && sudo bundle install
       - run:
           name: pre-start simulator
           command: xcrun instruments -w "iPhone 7 (10.2) [" || true
       - run:
           name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
+          command: cd Project && bundle exec fastlane $FASTLANE_LANE
       - store_artifacts:
           path: output
       - store_test_results:
