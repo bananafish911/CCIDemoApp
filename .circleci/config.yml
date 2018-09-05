@@ -26,36 +26,7 @@ jobs:
       - store_test_results:
           path: output/scan
 
-  adhoc:
-    macos:
-      xcode: "9.4.1"
-    working_directory: ~/CCIDemoApp
-    environment:
-      FL_OUTPUT_DIR: output
-      FASTLANE_LANE: adhoc
-    shell: /bin/bash --login -o pipefail
-    steps:
-      - checkout
-      - run: sudo bundle install
-      - run:
-          name: pre-start simulator
-          command: xcrun instruments -w "iPhone 7 (10.2) [" || true
-      - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - store_artifacts:
-          path: output
-
-
 
 workflows:
   version: 2
   build-test-adhoc:
-    jobs:
-      - build-and-test
-      - adhoc:
-          filters:
-            branches:
-              only: development
-          requires:
-            - build-and-test
